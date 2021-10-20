@@ -133,7 +133,7 @@ Files in a repository go through three stages before being under version control
 >> git log --since "Sun Nov 29 17:16:01 2020" --oneline #only shows commits that have occurred in specific date and time
 >> git log --grep "add" #show all commits that have add in their message
 >> git log --stat --summary #show the number of changes per file
->> git log --all --graph #show tree mode in brunch
+>> git log --all --graph #show all commits of all branchs in tree mode 
 
 # Session 11 : Git alias
 >> git config --global alias.gs "status"
