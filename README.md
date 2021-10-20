@@ -136,20 +136,20 @@ Files in a repository go through three stages before being under version control
 >> git log --all --graph #show tree mode in brunch
 
 # Session 11 : Git alias
->> git config --global alias.gs "status"
->> git config --global alias.glo "log --oneline"
+>> git config --global alias.gs "status" #set shortcuts for git commands for example: gs instead of status
+>> git config --global alias.glo "log --oneline" 
 
 # Session 12 : Git help
->> git help <any_commands>
+>> git help <any_commands> #show document related to command
 
 # Session 13 : Git add part of a file to the staging phase
 >> git add --patch | -p 
 
 # Session 14 : Git diff 
->> git diff <commID_1> <commID_2> filename
->> git diff --staged filename
->> git diff HEAD
->> git diff
+>> git diff <commID_1> <commID_2> filename #show differents between first commit and second commmit in a specific file 
+>> git diff --staged filename #show all changes that were staged in a specific file 
+>> git diff HEAD #show all changes that were not commited, whether staged or not
+>> git diff #show all changes that were not staged 
 
 # Session 15 : Time travel (git checkout, git restore)
 >> git checkout 
