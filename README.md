@@ -111,45 +111,45 @@ Files in a repository go through three stages before being under version control
 >> git status # show untrackted, modified, staged files
 >> git add filename # add untrackted or modified file to stage
 >> git add . # add all of untrackted or modified file to stage
->> git add -A
+>> git add -A # add all of untrackted or modified file to stage
 >> git add --patch # add part of file to staging area
 >> git commit 
->> git commit -m | --message "comm_msg" 
+>> git commit -m | --message "comm_msg" # Commit changes of tracked files to head
 >> git commit -a -m "comm_msg" # add all changes of tracked files to staging and commit them.
 >> git commit --amend # amend commit
 >> git commit --amend --no-edit 
 
 # Session 10 : Git history
->> git log # log of commits with date, descrtions and author Name
+>> git log # log of commits with date, descriptions and author Name
 >> git log --oneline # summary of git log
->> git log filename 
+>> git log filename #log of commits with date, descrtions and author Name related to a specific file
 >> git log -p filename # git log with all diff between commits 
 >> git show <commID_10> # show all info + diff HEAD,comm(HEAD-1) 
 >> git show <commID_10> filename # show all info + diff commID9,commID10
 >> git reflog # git reference log
->> git log --since "2 days ago"
->> git log --until "18:21"
->> git log --author "Mohammad"
->> git log --since "Sun Nov 29 17:16:01 2020" --oneline
->> git log --grep "add"
->> git log --stat --summary
->> git log --all --graph
+>> git log --since "2 days ago" #show only commits that occur one day ago until now
+>> git log --until "18:21" #only shows commits that have occurred until 18:21
+>> git log --author "Mohammad" #only shows the commits that user Mohammad has made
+>> git log --since "Sun Nov 29 17:16:01 2020" --oneline #only shows commits that have occurred in specific date and time
+>> git log --grep "add" #show all commits that have add in their message
+>> git log --stat --summary #show the number of changes per file
+>> git log --all --graph #show all commits of all branchs in tree mode 
 
 # Session 11 : Git alias
->> git config --global alias.gs "status"
+>> git config --global alias.gs "status" #set shortcuts for git commands for example: gs instead of status
 >> git config --global alias.glo "log --oneline"
 
 # Session 12 : Git help
->> git help <any_commands>
+>> git help <any_commands> #show document related to command
 
 # Session 13 : Git add part of a file to the staging phase
 >> git add --patch | -p 
 
 # Session 14 : Git diff 
->> git diff <commID_1> <commID_2> filename
->> git diff --staged filename
->> git diff HEAD
->> git diff
+>> git diff <commID_1> <commID_2> filename #show differents between first commit and second commmit in a specific file 
+>> git diff --staged filename #show all changes that were staged in a specific file 
+>> git diff HEAD #show all changes that were not commited, whether staged or not
+>> git diff #show all changes that were not staged 
 
 # Session 15 : Time travel (git checkout, git restore)
 >> git checkout 
