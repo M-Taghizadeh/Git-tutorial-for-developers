@@ -100,8 +100,8 @@ Files in a repository go through three stages before being under version control
 >> git config --global user.email "example@gmail.com" 
 >> git config --global --list | -L # get list of gloabl configs 
 >> git config --global --edit # --edit for edit git configs
->> git config --local alias.st "git status" # add alias for git commands
->> git config --local alias.gloa "git log --oneline --all" 
+>> git config --local alias.st "status" # add alias for git commands
+>> git config --local alias.gloa "log --oneline --all" 
 
 # Session 07 : Create Repository 
 >> git init # initial repository
@@ -118,6 +118,9 @@ Files in a repository go through three stages before being under version control
 >> git commit -a -m "comm_msg" # add all changes of tracked files to staging and commit them.
 >> git commit --amend # amend commit
 >> git commit --amend --no-edit 
+
+# Git Remove file
+>> git rm filename
 
 # Session 10 : Git history
 >> git log # log of commits with date, descriptions and author Name
@@ -150,12 +153,13 @@ Files in a repository go through three stages before being under version control
 >> git diff --staged filename #show all changes that were staged in a specific file 
 >> git diff HEAD #show all changes that were not commited, whether staged or not
 >> git diff #show all changes that were not staged 
+>> git diff branch1..branch2  #show the differences between branch1 and branch2
 
 # Session 15 : Time travel (git checkout, git restore)
 >> git checkout 
 >> git checkout -b branch_name commID # checkout in commID and create new branch
 >> git checkout -b branch_name tag_name # checkout in tag_version and create new branch 
->> git restore
+>> git restore filename
 >> git restore index.txt # restore unstaged parts of file to head => see that with "git diff"
 >> git restore --staged index.txt # restore staging parts of file to unstaged => see that with "git diff --staged"
 >> git restore --source HEAD index.txt # restore staging part of file and unstaging part of file => see that with "git diff head"
@@ -170,11 +174,21 @@ Files in a repository go through three stages before being under version control
 # Session 17 : Git revert
 >> git revert <commitID>
 
+# Compare Reset and Revert
+
+| Feature                      | `git reset`                          | `git revert`                          |
+|------------------------------|--------------------------------------|---------------------------------------|
+| **Purpose**                  | Move HEAD and modify history         | Create a new commit that undoes changes |
+| **History Modification**     | Yes, it rewrites history             | No, it preserves history              |
+| **Data Loss Potential**      | Yes, especially with `--hard`       | No, it preserves previous commits      |
+| **Use Case**                 | Undo commits, unstage changes        | Safely undo changes in shared repositories |
+| **Safe for Collaboration**   | Not safe, can disrupt others' work   | Safe, maintains history for all users |
+
 # Session 18 : Git branching
 >> git branch    # list of all local branchs
 >> git branch -r # list of all remote branchs
 >> git branch -a # list of all branchs (local branchs and remote branchs)
->> git branch -d branch_name
+>> git branch -d branch_name   # delete the branch
 >> git branch branch_name # create branch
 >> git switch branch_name # switch in branchs
 >> git switch -c branch_name # create and switch branch
@@ -215,9 +229,6 @@ Files in a repository go through three stages before being under version control
 # Session 23 : Git cherry-pick
 >> git cherry-pick <commitID>
 
-# Session 24 : Git ignore
->> git ignore
-
 # Session 25 : Git tag
 >> git tag # list of tags
 >> git tag -l 'v1.4.2.1.*'
@@ -228,11 +239,12 @@ Files in a repository go through three stages before being under version control
 >> git show v1.0.0
 >> git checkout -b branch_name commID # checkout in commID and create new branch
 >> git checkout -b branch_name tag_name # checkout in tag_version and create new branch
+>> git checkout <commID>  # transfer temporarily to a specific commit to check the code in that step and to come back use "git switch -"
 
 # Session 26 : Git blame
 >> git blame <filename> 
 >> git blame <filename> -L 1,10 # line 1 to 10
->> git blame head <filename>
+>> git blame HEAD <filename>
 >> git blame <commID> <filename>  
 >> git blame <branchName> <filename>
 
